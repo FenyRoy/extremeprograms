@@ -1,0 +1,28 @@
+import sys
+a,b=map(int,sys.stdin.readline().split())
+qno=int(input())
+q1=[]
+q2=[]
+for i in range(0,qno):
+    x,y=map(int,sys.stdin.readline().split())
+    q1.append(x)
+    q2.append(y)
+l=[]
+def small(a,b):
+    if a<b:
+        return a+1
+    else:
+        return b+1
+
+for i in range(1,small(a,b)):
+    if(a%i==0&b%i==0):
+        l.append(i);
+out=-1
+for i in range(0,qno):
+    j=q1[i]
+    k=q2[i]
+    out=-1
+    for m in range(0,len(l)):
+        if(j<=l[m]&l[m]<=k):
+            out=l[m]
+    print(out)
